@@ -1,6 +1,16 @@
 Meteor.publish "products", ->
-	Products.find {},
-		limit:10
+	@relations
+		collection:Products
+		options:
+			limit:10
+		mappings:[
+			{
+				key:"product"
+				collection:ProductImages
+			}
+		]
+
+	@ready()
 
 
 
