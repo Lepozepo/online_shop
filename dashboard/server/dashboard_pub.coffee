@@ -17,5 +17,5 @@ Meteor.publish "dashboard", ->
 		]
 
 	if totals and totals.length > 0 and totals[0]
-		@added "_dashboard","totals",totals[0]
+		@added "aggregate","dashboard.totals",totals[0]
 
