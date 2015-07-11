@@ -1,5 +1,9 @@
 # /_globals/client/formatters.coffee
 
-Template.registerHelper "format_money", (value) ->
-	if _.isNumber value
-		"$#{(value / 100).toFixed(2)}"
+@format =
+  money: (value) ->
+    if _.isNumber value
+      "$#{(value / 100).toFixed(2)}"
+
+Template.registerHelper "format", ->
+  format
