@@ -1,3 +1,5 @@
+# /products/client/products.coffee
+
 Template.created "products", ->
 	@autorun =>
 		# tags is an array of tag _ids
@@ -10,4 +12,10 @@ Template.created "products", ->
 
 		@subscribe "products", filter
 
-
+Template.products.helpers
+	products: ->
+		[
+			{name:"Nuka Cola", price: 1099}
+			{name:"1up Soda", price: 999}
+			{name:"JuggerNog", price: 899}
+		]

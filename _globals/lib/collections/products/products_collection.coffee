@@ -4,5 +4,5 @@
 	# name
 	# description
 	# sku
-
+	# price
 

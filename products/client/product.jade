@@ -1,0 +1,12 @@
+//- /products/client/product.jade
+
+template(name="product")
+	div.col-xs-12.col-sm-4.col-md-3
+		article#product
+			h5 {{name}}
+
+			div.offer
+				span.price {{format_money price}}
+
+
+
