@@ -1,7 +1,7 @@
 @Orders = new Mongo.Collection "orders"
 
 # fields
-	# status
+	# status ["new", "pending", "complete"]
 	# total_products
 	# subtotal
 	# tax

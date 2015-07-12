@@ -10,12 +10,17 @@ Template.created "products", ->
 			_.extend filter,
 				tags:tags
 
+		order = Session.get "global.order"
+		if order and not _.isEmpty order
+			_.extend filter,
+				order:order
+
 		@subscribe "products", filter
 
 Template.products.helpers
 	products: ->
 		[
-			{name:"Nuka Cola", price: 1099}
-			{name:"1up Soda", price: 999}
-			{name:"JuggerNog", price: 899}
+			{_id: Meteor.uuid(), name:"Nuka Cola", price: 1099}
+			{_id: Meteor.uuid(), name:"1up Soda", price: 999}
+			{_id: Meteor.uuid(), name:"JuggerNog", price: 899}
 		]

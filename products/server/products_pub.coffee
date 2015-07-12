@@ -40,6 +40,19 @@ Meteor.publish "products", (ops={}) ->
 				}
 			]
 
+	if ops.order and not _.isEmpty ops.order
+		@relations
+			collection:Orders
+			filter:
+				_id:ops.order
+				status:"new"
+			mappings:[
+				{
+					collection:OrderDetails
+					key:"order"
+				}
+			]
+
 	@ready()
 
 
