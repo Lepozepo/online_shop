@@ -22,9 +22,10 @@ Template.product.events
 	"click button.add-to-cart": (event) ->
 		# Get the session variable
 		order_id = Session.get "global.order"
+		order = Orders.findOne order_id
 
 		# Insert Order if it doesn't exist
-		unless order_id
+		unless order
 			order_id = Orders.insert
 				status:"new"
 				total_products:0
