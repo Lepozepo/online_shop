@@ -19,8 +19,6 @@ Template.created "products", ->
 
 Template.products.helpers
 	products: ->
-		[
-			{_id: Meteor.uuid(), name:"Nuka Cola", price: 1099}
-			{_id: Meteor.uuid(), name:"1up Soda", price: 999}
-			{_id: Meteor.uuid(), name:"JuggerNog", price: 899}
-		]
+		Products.find()
+
+

@@ -66,4 +66,14 @@ Template.product.events
 					subtotal:@price
 					total:@price
 
+	"click button.modify-quantity": ->
+		FlowRouter.go "order_quantity",
+			product:@_id
+
+
+
+
+
+
+
 
