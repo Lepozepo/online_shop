@@ -6,7 +6,7 @@
 	# sku
 	# price
 
-if Meteor.isClient
+if Meteor.isServer
 	if Products.find().count() is 0
 		Products.insert
 			name:"Nuka Cola"
