@@ -41,10 +41,6 @@ Template.order_quantity.events
 			i.total.set total.slice 0,-1
 
 	"click .add-to-cart": (event,i) ->
-		# Get the session variable
-		order_id = Session.get "global.order"
-		order = Orders.findOne order_id
-
 		# Get the total
 		total = i.total.get()
 		unless total
@@ -52,53 +48,13 @@ Template.order_quantity.events
 		else
 			total = Number total
 
-		# Get the ID of the product
-		product = Products.findOne FlowRouter.current().params.product
-
-		# Insert Order if it doesn't exist
-		unless order
-			order_id = Orders.insert
-				status:"new"
-				total_products:0
-				subtotal:0
-				total:0
-
-			# Set the session variable for future reference
-			Session.setPersistent "global.order",order_id
-
-		# Find the order
-		order = Orders.findOne order_id
-
-		# Check for details on this product
-		detail = OrderDetails.findOne
-			product:product._id
-			order:order_id
-
-		if detail
-			# Increase by one if the details exist
-			OrderDetails.update detail._id,
-				$inc:
-					quantity:total
-
-			Orders.update order_id,
-				$inc:
-					total_products:1
-					subtotal:product.price
-					total:product.price
-		else
-			# Insert if details do not exist
-			OrderDetails.insert
-				quantity:total
-				product:product._id
-				order:order_id
-
-			Orders.update order_id,
-				$inc:
-					total_products:1
-					subtotal:product.price
-					total:product.price
-
-		FlowRouter.go "products"
+		Meteor.call "cart.add-to-cart",
+			order:Session.get "global.order"
+			product:FlowRouter.current().params.product
+			quantity:total
+			(error,r) ->
+				if not error
+					FlowRouter.go "products"
 
 
 
