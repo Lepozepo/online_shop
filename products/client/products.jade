@@ -36,7 +36,11 @@ template(name="products")
 		section#featured_products
 			div.container
 				div.row
-					each products
-						+product
+					if Template.subscriptionsReady
+						each products
+							+product
+					else
+						div(style="height:160px;")
+							+loader color_class="text-primary"
 
 		br
