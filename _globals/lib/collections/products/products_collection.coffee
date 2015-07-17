@@ -1,10 +1,25 @@
+# /_globals/lib/collections/products/products_collection.coffee
+
 @Products = new Mongo.Collection "products"
 
-# fields
-	# name
-	# description
-	# sku
-	# price
+Products.attachSchema new SimpleSchema
+	name:
+		type:String
+		label:"Name"
+
+	description:
+		type:String
+		label:"Description"
+		optional:true
+
+	sku:
+		type:String
+		label:"SKU"
+		optional:true
+
+	price:
+		type:Number
+		label:"Price"
 
 if Meteor.isServer
 	if Products.find().count() is 0
@@ -19,3 +34,6 @@ if Meteor.isServer
 		Products.insert
 			name:"JuggerNog"
 			price: 899
+
+
+
