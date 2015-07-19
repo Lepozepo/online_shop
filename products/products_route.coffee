@@ -11,3 +11,5 @@ FlowRouter.route "/products/create",
 	action: ->
 		FlowLayout.render "layout",
 			content:"create_product"
+
+
