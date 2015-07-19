@@ -7,3 +7,11 @@ html, body, #__flow-root, #__flow-root > .template
 	position:relative
 	transform:translateY(-50%)
 	top:50%
+
+.animate
+	&.opacity
+		transition: opacity 500ms
+		opacity:1
+
+		&.invisible
+			opacity:0

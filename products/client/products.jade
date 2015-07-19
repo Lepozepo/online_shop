@@ -36,11 +36,13 @@ template(name="products")
 		section#featured_products
 			div.container
 				div.row
-					if Template.subscriptionsReady
-						each products
-							+product
-					else
-						div(style="height:160px;")
-							+loader color_class="text-primary"
+					+momentum(plugin="fade-fast")
+						if Template.subscriptionsReady
+							each products
+								div.col-xs-12.col-sm-4.col-md-3
+									+product
+						else
+							div(style="height:160px;")
+								+loader color_class="text-primary"
 
 		br

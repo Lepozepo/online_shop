@@ -1,16 +1,15 @@
 //- /products/client/product.jade
 
 template(name="product")
-	div.col-xs-12.col-sm-4.col-md-3
-		article#product
-			h5 {{name}}
+	article#product
+		h5 {{name}}
 
-			div.offer
-				span.price {{format.money price}}
+		div.offer
+			span.price {{format.money price}}
 
-			button.add-to-cart.btn.btn-block.btn-primary Add 1 to Cart
+		button.add-to-cart.btn.btn-block.btn-primary Add 1 to Cart
 
-			button.modify-quantity.btn.btn-block.btn-info Add more to Cart
+		button.modify-quantity.btn.btn-block.btn-info Add more to Cart
 
 
 
