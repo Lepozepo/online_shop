@@ -1,11 +1,12 @@
 //- /products/client/product.jade
 
 template(name="product")
-	article#product
-		h5 {{name}}
+	article#product(itemscope itemtype="http://schema.org/Product")
+		h5(itemprop="name") {{name}}
 
-		div.offer
-			span.price {{format.money price}}
+		div.offer(itemprop="offers" itemscope itemtype="http://schema.org/Offer")
+			meta(itemprop="priceCurrency" content="USD")
+			span.price(itemprop="price") {{format.money price}}
 
 		button.add-to-cart.btn.btn-block.btn-primary Add 1 to Cart
 
