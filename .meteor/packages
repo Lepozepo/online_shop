@@ -8,7 +8,6 @@ meteor-platform
 coffeescript
 mquandalle:jade
 mquandalle:stylus
-less
 meteorhacks:flow-router
 meteorhacks:flow-layout
 yasinuslu:blaze-meta
@@ -23,7 +22,6 @@ fastclick
 reactive-var
 momentjs:moment
 mrt:moment-timezone
-nemo64:bootstrap
 raix:handlebar-helpers
 fortawesome:fontawesome
 alanning:roles
@@ -31,3 +29,7 @@ accounts-password
 meteorhacks:aggregate
 http
 meteorhacks:unblock
+kyleking:customizable-bootstrap-stylus
+u2622:persistent-session
+aldeed:autoform
+percolate:momentum
