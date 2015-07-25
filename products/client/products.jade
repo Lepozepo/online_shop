@@ -37,6 +37,24 @@ template(name="products")
 			section#featured_products
 				div.container
 					div.row
+						br.visible-xs
+						//- PAGINATION
+						div.col-xs-4
+							button.btn.btn-block.btn-primary.previous-page
+								i.fa.fa-chevron-left
+
+						div.col-xs-4
+							button.btn.btn-block.btn-info {{pages.current}}
+
+						div.col-xs-4
+							unless pages.is_last_page
+								button.btn.btn-block.btn-primary.next-page
+									i.fa.fa-chevron-right
+
+						div.clearfix
+						br
+
+						//- PRODUCTS
 						+momentum(plugin="fade-fast")
 							if Template.subscriptionsReady
 								each products

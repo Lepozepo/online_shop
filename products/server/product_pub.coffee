@@ -4,7 +4,7 @@ Meteor.publish "product", (ops={}) ->
 	if ops.product and not _.isEmpty ops.product
 		@relations
 			collection:Products
-			options:
+			filter:
 				_id:ops.product
 			mappings:[
 				{
