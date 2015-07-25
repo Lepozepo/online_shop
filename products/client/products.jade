@@ -8,41 +8,42 @@ template(name="products")
 					div.col-xs-12
 						h3 Your Brand
 
-		section#features
-			div.container
-				div.row
-					div.col-xs-12.col-sm-4
-						h3.text-center
-							span.fa-stack.fa-lg
-								i.fa.fa-square.fa-stack-2x.text-primary
-								i.fa.fa-users.fa-inverse.fa-stack-1x
-						h5.text-center 24 Hour Support
+		div#content
+			section#features
+				div.container
+					div.row
+						div.col-xs-4
+							h3.text-center
+								span.fa-stack.fa-lg
+									i.fa.fa-square.fa-stack-2x.text-primary
+									i.fa.fa-users.fa-inverse.fa-stack-1x
+							h5.text-center 24 Hour Support
 
-					div.col-xs-12.col-sm-4
-						h3.text-center
-							span.fa-stack.fa-lg
-								i.fa.fa-square.fa-stack-2x.text-primary
-								i.fa.fa-truck.fa-inverse.fa-stack-1x
-						h5.text-center Next Day Delivery
+						div.col-xs-4
+							h3.text-center
+								span.fa-stack.fa-lg
+									i.fa.fa-square.fa-stack-2x.text-primary
+									i.fa.fa-truck.fa-inverse.fa-stack-1x
+							h5.text-center Next Day Delivery
 
-					div.col-xs-12.col-sm-4
-						h3.text-center
-							span.fa-stack.fa-lg
-								i.fa.fa-square.fa-stack-2x.text-primary
-								i.fa.fa-bomb.fa-inverse.fa-stack-1x
-						h5.text-center Mind Blown Guarantee
+						div.col-xs-4
+							h3.text-center
+								span.fa-stack.fa-lg
+									i.fa.fa-square.fa-stack-2x.text-primary
+									i.fa.fa-bomb.fa-inverse.fa-stack-1x
+							h5.text-center Mind Blown Guarantee
 
-		br
-		section#featured_products
-			div.container
-				div.row
-					+momentum(plugin="fade-fast")
-						if Template.subscriptionsReady
-							each products
-								div.col-xs-12.col-sm-4.col-md-3
-									+product
-						else
-							div(style="height:160px;")
-								+loader color_class="text-primary"
+			br.hidden-landscape-xs
+			section#featured_products
+				div.container
+					div.row
+						+momentum(plugin="fade-fast")
+							if Template.subscriptionsReady
+								each products
+									div.col-xs-4.col-md-3
+										+product
+							else
+								div(style="height:160px;")
+									+loader color_class="text-primary"
 
-		br
+				br
