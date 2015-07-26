@@ -37,6 +37,13 @@ template(name="products")
 			section#featured_products
 				div.container
 					div.row
+						//- SEARCH
+						div.col-xs-12
+							div.form-group.has-feedback
+								input.input-lg.search.form-control(type="text" placeholder="Search products" autocapitalize="off" autocorrect="off" autocomplete="off" value="{{pages.search}}")
+								span(style="pointer-events:auto; cursor:pointer;").clear_search.form-control-feedback.fa.fa-search.fa-2x
+
+
 						br.visible-xs
 						//- PAGINATION
 						div.col-xs-4

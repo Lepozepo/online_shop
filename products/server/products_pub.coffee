@@ -8,6 +8,14 @@ Meteor.publish "products", (ops={}) ->
 		sort:
 			name:1
 
+	filter = {}
+
+	if ops.search and not _.isEmpty ops.search
+		_.extend filter,
+			name:
+				$regex: ops.search
+				$options:"i"
+
 	if ops.tags and not _.isEmpty ops.tags
 		@relations
 			collection:Tags
@@ -22,6 +30,7 @@ Meteor.publish "products", (ops={}) ->
 						{
 							collection:Products
 							foreign_key:"product"
+							filter:filter
 							options:product_options
 							mappings:[
 								{
@@ -36,11 +45,12 @@ Meteor.publish "products", (ops={}) ->
 
 	else
 		Counts.publish this,"products",
-			Products.find()
+			Products.find filter
 			noReady:true
 
 		@relations
 			collection:Products
+			filter:filter
 			options:product_options
 			mappings:[
 				{
