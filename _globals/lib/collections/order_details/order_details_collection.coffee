@@ -1,16 +1,31 @@
 @OrderDetails = new Mongo.Collection "order_details"
 
-# fields
-	# order
-	# product
-	# price
-	# quantity
-	# subtotal
-	# tax
-	# 	rate
-	# 	amount
-	# total
-	# discounts
-	# 	discount
-	# 	amount
+OrderDetails.attachSchema new SimpleSchema
+	order:
+		type:String
+
+	product:
+		type:String
+
+	price:
+		type:Number
+
+	quantity:
+		type:Number
+
+	subtotal:
+		type:Number
+
+	tax:
+		type:Object
+		optional:true
+
+	"tax.rate":
+		type:Number
+
+	"tax.amount":
+		type:Number
+
+	total:
+		type:Number
 

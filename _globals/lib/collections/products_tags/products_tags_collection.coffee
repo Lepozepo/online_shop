@@ -1,8 +1,11 @@
 @ProductsTags = new Mongo.Collection "products_tags"
 
-# fields
-	# product
-	# tag
+ProductsTags.attachSchema new SimpleSchema
+	product:
+		type:String
+
+	tag:
+		type:String
 
 
 

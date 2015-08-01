@@ -1,10 +1,10 @@
-Meteor.startup ->
-	Orders.allow
-		insert: -> true
+# Meteor.startup ->
+# 	Orders.allow
+# 		insert: -> true
 
-		update: -> true
+# 		update: -> true
 
-		remove: -> true
+# 		remove: -> true
 
 
 
