@@ -1,4 +1,4 @@
-# /router/config.coffee
+# /_globals/router/config.coffee
 
 if Meteor.isClient
 	Meta.config

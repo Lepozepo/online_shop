@@ -1,4 +1,4 @@
-# /router/client/not_found.coffee
+# /_globals/router/client/not_found.coffee
 
 Template.rendered "not_found", ->
 	Meta.set [
