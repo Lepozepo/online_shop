@@ -1,10 +1,8 @@
 Meteor.startup ->
-	ProductImages.allow
-		insert: -> true
-
-		update: -> true
-
-		remove: -> true
+	ProductImages.permit ["update","insert","remove"]
+		.ifLoggedIn()
+		.ifHasRole "admin"
+		.apply()
 
 
 

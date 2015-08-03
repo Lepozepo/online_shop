@@ -1,10 +1,7 @@
 Meteor.startup ->
-	OrderDetails.allow
-		insert: -> true
-
-		update: -> true
-
-		remove: -> true
+	OrderDetails.permit ["insert","update","remove"]
+		.never()
+		.apply()
 
 
 

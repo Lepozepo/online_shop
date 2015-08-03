@@ -1,10 +1,8 @@
 Meteor.startup ->
-	ProductsTags.allow
-		insert: -> true
-
-		update: -> true
-
-		remove: -> true
+	ProductsTags.permit ["update","insert","remove"]
+		.ifLoggedIn()
+		.ifHasRole "admin"
+		.apply()
 
 
 
