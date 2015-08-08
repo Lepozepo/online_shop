@@ -1,12 +1,13 @@
 Meteor.startup ->
-	Orders.allow
-		insert: -> true
+	# Admin may only modify status
+	Orders.permit "update"
+		.ifLoggedIn()
+		.ifHasRole "admin"
+		.onlyProps "status"
+		.apply()
 
-		update: -> true
-
-		remove: -> true
-
-
-
+	Orders.permit ["insert","remove"]
+		.never()
+		.apply()
 
 

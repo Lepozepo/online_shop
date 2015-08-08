@@ -1,15 +1,35 @@
+# /_globals/lib/collections/orders/orders_collection.coffee
+
 @Orders = new Mongo.Collection "orders"
 
-# fields
-	# status ["new", "pending", "complete"]
-	# total_products
-	# subtotal
-	# tax
-	# 	rate
-	# 	amount
-	# discounts
-	# 	discount
-	# 	amount
-	# total
-	# date_created
+Orders.attachSchema new SimpleSchema
+	status:
+		type:String
+		allowedValues:["new","pending","complete"]
+
+	total_products:
+		type:Number
+
+	subtotal:
+		type:Number
+
+	tax_total:
+		type:Number
+		optional:true
+
+	total:
+		type:Number
+
+	date_created:
+		type:Number
+		autoValue: ->
+			if @isInsert
+				return Date.now()
+			if @isUpsert
+				$setOnInsert:Date.now()
+
+
+
+
+
 

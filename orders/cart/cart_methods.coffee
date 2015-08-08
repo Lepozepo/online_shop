@@ -1,11 +1,12 @@
 # /orders/cart/cart_methods.coffee
 
 Meteor.methods
-	"cart.add-to-cart": (ops={},callback) ->
-		#ops
-			# order
-			# product
-			# quantity
+	"cart.add-to-cart": (ops={}) ->
+		# Validate data
+		check ops,
+			order:Match.Optional(Match.OneOf(String,null))
+			product:String
+			quantity:Number
 
 		order = Orders.findOne ops.order
 		product = Products.findOne ops.product
@@ -17,7 +18,20 @@ Meteor.methods
 				total_products:0
 				subtotal:0
 				total:0
+
+			if Meteor.isServer
+				Meteor.defer ->
+					Email.send
+						to:"you@email.com"
+						from:"me@email.com"
+						subject:"New Customer!"
+						text:"Someone has created a new order"
+
 		else
+			# Validate order status
+			if order.status isnt "new"
+				throw new Meteor.Error 405, "Not Allowed"
+
 			order_id = order._id
 
 		# Set the session variable for future reference
@@ -37,6 +51,8 @@ Meteor.methods
 			OrderDetails.update detail._id,
 				$inc:
 					quantity:ops.quantity
+					subtotal:product.price * ops.quantity
+					total:product.price * ops.quantity
 
 			Orders.update order._id,
 				$inc:
@@ -49,6 +65,9 @@ Meteor.methods
 				quantity:ops.quantity
 				product:product._id
 				order:order._id
+				price:product.price
+				subtotal:product.price * ops.quantity
+				total:product.price * ops.quantity
 
 			Orders.update order._id,
 				$inc:
@@ -56,8 +75,6 @@ Meteor.methods
 					subtotal:product.price * ops.quantity
 					total:product.price * ops.quantity
 
-		# Run the callback function if it exists
-		callback and callback(null, true)
 
 
 

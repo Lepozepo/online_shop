@@ -1,5 +1,20 @@
+# /products/server/products_pub.coffee
+
 Meteor.publish "products", (ops={}) ->
 	limit = 10
+	product_options =
+		skip:ops.page * limit
+		limit:limit
+		sort:
+			name:1
+
+	filter = {}
+
+	if ops.search and not _.isEmpty ops.search
+		_.extend filter,
+			name:
+				$regex: ops.search
+				$options:"i"
 
 	if ops.tags and not _.isEmpty ops.tags
 		@relations
@@ -15,8 +30,8 @@ Meteor.publish "products", (ops={}) ->
 						{
 							collection:Products
 							foreign_key:"product"
-							options:
-								limit:limit
+							filter:filter
+							options:product_options
 							mappings:[
 								{
 									collection:ProductImages
@@ -29,10 +44,14 @@ Meteor.publish "products", (ops={}) ->
 			]
 
 	else
+		Counts.publish this,"products",
+			Products.find filter
+			noReady:true
+
 		@relations
 			collection:Products
-			options:
-				limit:limit
+			filter:filter
+			options:product_options
 			mappings:[
 				{
 					key:"product"

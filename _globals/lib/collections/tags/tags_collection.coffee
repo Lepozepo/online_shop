@@ -1,7 +1,7 @@
 @Tags = new Mongo.Collection "tags"
 
-# fields
-	# name
-
-
+Tags.attachSchema new SimpleSchema
+	name:
+		type:String
+		unique:true
 
