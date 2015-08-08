@@ -44,9 +44,9 @@ _.extend Stripe,
 							throw new Meteor.Error error
 
 		set_interval: ->
-			Meteor.setInterval Stripe.payments.get,6000
+			Meteor.setInterval Stripe.payments.get,3600000
 
 		is_running:false
 
-
-Stripe.payments.set_interval()
+if process.env.NODE_ENV isnt "development"
+	Stripe.payments.set_interval()

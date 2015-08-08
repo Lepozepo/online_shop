@@ -60,6 +60,7 @@ mquandalle:jade-compiler@0.4.3
 mquandalle:stylus@1.1.1
 mrt:moment@2.8.1
 mrt:moment-timezone@0.2.1
+nimble:restivus@0.8.2
 npm-bcrypt@0.7.8_2
 observe-sequence@1.0.6
 ongoworks:security@1.2.0
@@ -76,6 +77,7 @@ routepolicy@1.0.5
 service-configuration@1.0.4
 session@1.1.0
 sha@1.0.3
+simple:json-routes@1.0.4
 spacebars@1.0.6
 spacebars-compiler@1.0.6
 srp@1.0.3
