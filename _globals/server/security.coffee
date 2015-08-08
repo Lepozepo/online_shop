@@ -7,7 +7,6 @@ Meteor.startup ->
 	# Prevent inline scripting
 	BrowserPolicy.content.disallowInlineScripts()
 
-
 	trusted_sites = [
 		"*.google-analytics.com"
 		"*.mxpnl.com"
