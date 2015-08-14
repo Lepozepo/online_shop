@@ -47,6 +47,8 @@ meteorhacks:aggregate@1.2.1
 meteorhacks:collection-utils@1.2.0
 meteorhacks:flow-layout@1.4.2
 meteorhacks:flow-router@1.19.0
+meteorhacks:kadira@2.11.11
+meteorhacks:kadira-binary-deps@1.2.1
 meteorhacks:meteorx@1.0.2
 meteorhacks:unblock@1.1.0
 minifiers@1.1.5
