@@ -37,6 +37,7 @@ kyleking:customizable-bootstrap-stylus@3.5.0_1
 kyleking:customizable-bootstrap-stylus-data@4.0.4
 launch-screen@1.0.2
 lepozepo:publish-with-relations@1.2.4
+less@1.0.14
 livedata@1.0.13
 localstorage@1.0.3
 logging@1.0.7
@@ -67,8 +68,11 @@ npm-bcrypt@0.7.8_2
 observe-sequence@1.0.6
 ongoworks:security@1.2.0
 ordered-dict@1.0.3
+package-version-parser@3.0.3
 percolate:momentum@0.7.2
 percolate:velocityjs@1.1.0
+practicalmeteor:chai@1.9.2_3
+practicalmeteor:loglevel@1.1.0_3
 raix:handlebar-helpers@0.2.4
 random@1.0.3
 reactive-dict@1.1.0
@@ -76,6 +80,9 @@ reactive-var@1.0.5
 reload@1.1.3
 retry@1.0.3
 routepolicy@1.0.5
+sanjo:long-running-child-process@1.1.3
+sanjo:meteor-files-helpers@1.1.0_7
+sanjo:meteor-version@1.0.0
 service-configuration@1.0.4
 session@1.1.0
 sha@1.0.3
@@ -90,8 +97,15 @@ u2622:persistent-session@0.3.5
 ui@1.0.6
 underscore@1.0.3
 url@1.0.4
+velocity:chokidar@1.0.3_1
+velocity:core@0.9.3
+velocity:html-reporter@0.7.3
+velocity:meteor-internals@1.1.0_7
+velocity:shim@0.1.0
+velocity:source-map-support@0.3.2_1
 webapp@1.2.0
 webapp-hashing@1.0.3
 wizonesolutions:canonical@0.0.5
+xolvio:cucumber@0.13.8
 xorax:multiple-callbacks@0.1.4
 yasinuslu:blaze-meta@0.3.1
