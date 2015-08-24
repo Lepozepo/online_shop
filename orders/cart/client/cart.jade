@@ -1,4 +1,17 @@
 template(name="cart")
 	h3.text-center cart
 
+	div.container
+		each order_details
+			div.order_detail.row
+				div.col-xs-12
+					div.media
+						div.media-left.media-middle
+							h3.quantity.text-center {{quantity}}
+
+						div.media-body
+							h4 {{product.name}}
+							small
+								em {{format.money product.price}}
+
 

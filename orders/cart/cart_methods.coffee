@@ -4,7 +4,7 @@ Meteor.methods
 	"cart.add-to-cart": (ops={}) ->
 		# Validate data
 		check ops,
-			order:Match.Optional(Match.OneOf(String,null))
+			order:Match.Optional(Match.OneOf(String,null,undefined))
 			product:String
 			quantity:Number
 
