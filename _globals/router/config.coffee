@@ -1,6 +1,17 @@
 # /_globals/router/config.coffee
 
+
 if Meteor.isClient
+	BlazeLayout.setRoot 'body'
+
+	FlowRouter.wait()
+	Meteor.startup ->
+		# Initialize roles before FlowRouter
+		Tracker.autorun (computation) ->
+			if Roles.subscription.ready() and not FlowRouter._initialized
+				FlowRouter.initialize()
+				computation.stop()
+
 	Meta.config
 		options:
 			title:"Crashing Meteor"
