@@ -4,5 +4,5 @@ FlowRouter.route "/login",
 	name:"login"
 	triggersEnter:[RT.non_user_only]
 	action: ->
-		FlowLayout.render "layout",
+		BlazeLayout.render "layout",
 			content:"login"

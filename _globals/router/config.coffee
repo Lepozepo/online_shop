@@ -11,7 +11,6 @@ if Meteor.isClient
 			"Template.__dynamicWithDataContext"
 			"Template.__dynamic"
 			"Template.layout"
-			"Template.layout"
 			"body"
 		]
 
@@ -24,7 +23,7 @@ if Meteor.isClient
 
 FlowRouter.notFound =
 	action: ->
-		FlowLayout.render "layout",
+		BlazeLayout.render "layout",
 			content:"not_found"
 
 
